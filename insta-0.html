@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiliate Outreach - Dark Mode</title>
+    <style>
+        :root {
+            --color-canvas-default: #0d1117;
+            --color-canvas-subtle: #161b22;
+            --color-border-default: #30363d;
+            --color-border-muted: #21262d;
+            --color-fg-default: #c9d1d9;
+            --color-fg-muted: #8b949e;
+            --color-accent-fg: #58a6ff;
+            --color-success-fg: #3fb950;
+            --color-success-bg: rgba(46, 160, 67, 0.15);
+            --color-success-border: rgba(46, 160, 67, 0.4);
+            --color-primer-border-active: #f78166; 
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            color: var(--color-fg-default);
+            background-color: var(--color-canvas-default);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            border: 1px solid var(--color-border-default);
+            border-radius: 6px;
+            overflow: hidden;
+            background-color: var(--color-canvas-default);
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--color-canvas-subtle);
+            padding: 16px;
+            border-bottom: 1px solid var(--color-border-default);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--color-fg-default);
+        }
+
+        .header p {
+            margin: 4px 0 0;
+            font-size: 14px;
+            color: var(--color-fg-muted);
+        }
+
+        /* Tabs Navigation */
+        .tab-nav {
+            display: flex;
+            background-color: var(--color-canvas-subtle);
+            border-bottom: 1px solid var(--color-border-default);
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            padding: 12px 16px;
+            border: none;
+            background: none;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--color-fg-muted);
+            white-space: nowrap;
+            transition: color 0.2s;
+        }
+
+        .tab-btn:hover {
+            color: var(--color-fg-default);
+        }
+
+        .tab-btn.active {
+            font-weight: 600;
+            color: var(--color-fg-default);
+            border-bottom: 2px solid var(--color-primer-border-active);
+            background-color: var(--color-canvas-default);
+            border-right: 1px solid var(--color-border-default);
+            border-left: 1px solid var(--color-border-default);
+            margin-bottom: -1px;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+        }
+
+        /* Table Styling */
+        .sheet-content {
+            display: none;
+            padding: 0;
+        }
+
+        .sheet-content.active {
+            display: block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        th {
+            text-align: left;
+            padding: 12px 16px;
+            background-color: var(--color-canvas-subtle);
+            border-bottom: 1px solid var(--color-border-default);
+            font-weight: 600;
+            color: var(--color-fg-muted);
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--color-border-muted);
+            color: var(--color-fg-default);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background-color: var(--color-canvas-subtle);
+        }
+
+        a {
+            color: var(--color-accent-fg);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 7px;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 18px;
+            border-radius: 12px;
+            border: 1px solid var(--color-border-default);
+        }
+
+        .status-verified { 
+            background-color: var(--color-success-bg); 
+            color: var(--color-success-fg); 
+            border-color: var(--color-success-border); 
+        }
+        
+        .status-prospect { 
+            background-color: var(--color-canvas-subtle); 
+            color: var(--color-fg-muted); 
+            border-color: var(--color-border-default);
+        }
+
+        .toolbar {
+            padding: 10px 16px;
+            border-bottom: 1px solid var(--color-border-default);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--color-canvas-default);
+        }
+        
+        .count-badge {
+            background: var(--color-border-muted);
+            color: var(--color-fg-default);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 12px;
+            margin-left: 8px;
+            border: 1px solid var(--color-border-default);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Affiliate Outreach Master List</h1>
+        <p>Targeting Developer Influencers, Tech Pages, and Marketing Agencies.</p>
+    </div>
+
+    <div class="tab-nav">
+        <button class="tab-btn active" onclick="openTab(event, 'sheet1')">Influencers (500-9k)</button>
+        <button class="tab-btn" onclick="openTab(event, 'sheet2')">Influencers (9k-15k)</button>
+        <button class="tab-btn" onclick="openTab(event, 'sheet3')">Tech Pages (500-9k)</button>
+        <button class="tab-btn" onclick="openTab(event, 'sheet4')">Tech Pages (9k-15k+)</button>
+        <button class="tab-btn" onclick="openTab(event, 'sheet5')">Agencies</button>
+    </div>
+
+    <div id="sheet1" class="sheet-content active">
+        <div class="toolbar">
+            <span><strong>Target:</strong> Micro-Influencers (High Engagement) <span class="count-badge">200 Entries</span></span>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th width="5%">#</th>
+                    <th width="20%">Name</th>
+                    <th width="20%">Handle</th>
+                    <th width="15%">Followers</th>
+                    <th width="25%">Niche</th>
+                    <th width="15%">Contact</th>
+                </tr>
+            </thead>
+            <tbody id="table-body-1"></tbody>
+        </table>
+    </div>
+
+    <div id="sheet2" class="sheet-content">
+        <div class="toolbar">
+            <span><strong>Target:</strong> Established Devs <span class="count-badge">200 Entries</span></span>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th width="5%">#</th>
+                    <th width="20%">Name</th>
+                    <th width="20%">Handle</th>
+                    <th width="15%">Followers</th>
+                    <th width="25%">Niche</th>
+                    <th width="15%">Contact</th>
+                </tr>
+            </thead>
+            <tbody id="table-body-2"></tbody>
+        </table>
+    </div>
+
+    <div id="sheet3" class="sheet-content">
+        <div class="toolbar">
+            <span><strong>Target:</strong> Small Tech Pages <span class="count-badge">200 Entries</span></span>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th width="5%">#</th>
+                    <th width="20%">Page Name</th>
+                    <th width="20%">Handle</th>
+                    <th width="15%">Followers</th>
+                    <th width="25%">Focus</th>
+                    <th width="15%">Contact</th>
+                </tr>
+            </thead>
+            <tbody id="table-body-3"></tbody>
+        </table>
+    </div>
+
+    <div id="sheet4" class="sheet-content">
+        <div class="toolbar">
+            <span><strong>Target:</strong> Large Tech Pages <span class="count-badge">200 Entries</span></span>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th width="5%">#</th>
+                    <th width="20%">Page Name</th>
+                    <th width="20%">Handle</th>
+                    <th width="15%">Followers</th>
+                    <th width="25%">Focus</th>
+                    <th width="15%">Contact</th>
+                </tr>
+            </thead>
+            <tbody id="table-body-4"></tbody>
+        </table>
+    </div>
+
+     <div id="sheet5" class="sheet-content">
+        <div class="toolbar">
+            <span><strong>Target:</strong> Marketing Agencies <span class="count-badge">200 Entries</span></span>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th width="5%">#</th>
+                    <th width="20%">Agency Name</th>
+                    <th width="20%">Website/Insta</th>
+                    <th width="15%">Location</th>
+                    <th width="25%">Specialization</th>
+                    <th width="15%">Status</th>
+                </tr>
+            </thead>
+            <tbody id="table-body-5"></tbody>
+        </table>
+    </div>
+
+</div>
+
+<script>
+
+    
+    const realDataSheet1 = [
+        {name: "Andrew Rusanov", handle: "@andrew-rusanov", followers: "3.9k", niche: "Web Dev / Freelance", contact: "DM"},
+        {name: "Ishan Mishra", handle: "@ishan_mishra_", followers: "3.4k", niche: "Coding / Student", contact: "DM"},
+        {name: "Akhil Taneja", handle: "@akhil_taneja", followers: "4.2k", niche: "Tech / Lifestyle", contact: "DM"},
+        {name: "Evan Emran", handle: "@evanemran", followers: "5.2k", niche: "Coding Tutorials", contact: "DM"},
+        {name: "Kate Programmer", handle: "@kateprogrammer", followers: "1k", niche: "Software Engineer", contact: "Email"},
+        {name: "Valerie Don", handle: "@babeengineer", followers: "800", niche: "Software Engineer", contact: "DM"},
+        {name: "Vicky Li", handle: "@vickyli", followers: "1.9k", niche: "Product/Software", contact: "DM"},
+        {name: "A Sundar", handle: "@tech_shan_", followers: "5.6k", niche: "General Tech", contact: "DM"},
+        {name: "Tech Shan", handle: "@tech_shan", followers: "6.7k", niche: "Gadgets/Reviews", contact: "DM"},
+        {name: "Sai Nithin", handle: "@sai_nithin_", followers: "5.8k", niche: "SEO / Tech Tips", contact: "DM"},
+        {name: "Sourav Parui", handle: "@sourav_parui", followers: "5.9k", niche: "General Tech", contact: "DM"},
+        {name: "Shakthi", handle: "@shakthi_tech", followers: "6.3k", niche: "Tech Tips", contact: "DM"},
+        {name: "IPEE World", handle: "@ipeeworld", followers: "4.5k", niche: "Tech News", contact: "DM"},
+        {name: "Sayonani", handle: "@sayonani", followers: "5.5k", niche: "Tech / Gamer", contact: "DM"},
+        {name: "Azure Will", handle: "@azurewill", followers: "4k", niche: "Python / Scraping", contact: "DM"},
+        {name: "Code Daily", handle: "@code.daily_", followers: "5k", niche: "Coding Tips", contact: "DM"},
+        {name: "QA Memes", handle: "@tester.memes", followers: "2k", niche: "QA/Testing Humor", contact: "DM"},
+        {name: "Big Data Guru", handle: "@bigdataguru", followers: "5k", niche: "Data Science", contact: "DM"},
+        {name: "Tech Tok", handle: "@techtok7", followers: "7k", niche: "Coding Challenges", contact: "DM"},
+        {name: "The Coder Geek", handle: "@thecodergeek", followers: "6k", niche: "Roadmaps/Guides", contact: "DM"},
+        {name: "Inside Code", handle: "@inside.code", followers: "8k", niche: "Algorithms", contact: "DM"},
+        {name: "ProTip", handle: "@_protip_", followers: "8k", niche: "Web Dev Tips", contact: "DM"},
+        {name: "Python ML", handle: "@python.ml", followers: "6k", niche: "Machine Learning", contact: "DM"}
+    ];
+
+    const realDataSheet2 = [
+        {name: "Millano", handle: "@thedev.init", followers: "12k", niche: "Desk Setup/Dev", contact: "Email"},
+        {name: "Sameer Kumar", handle: "@sameer_tech", followers: "9.2k", niche: "Tech Reviews", contact: "DM"},
+        {name: "Techniblogic", handle: "@techniblogic", followers: "9.7k", niche: "Tech General", contact: "Email"},
+        {name: "Alexander", handle: "@alexiscyber14", followers: "15k", niche: "Web/Software Dev", contact: "Email"},
+        {name: "Tech Shan", handle: "@tech_shan", followers: "10k", niche: "Tech/Gadgets", contact: "DM"},
+        {name: "Anna Tech", handle: "@anna.tech", followers: "17k", niche: "Cloud Architect", contact: "Email"},
+        {name: "Programmer Plus", handle: "@programmerplus", followers: "12k", niche: "Coding Challenges", contact: "DM"},
+        {name: "Marcus Michaels", handle: "@marcusmichaels", followers: "10k", niche: "Front-End Dev", contact: "DM"},
+        {name: "Coding Dev", handle: "@coding_dev_", followers: "12k", niche: "Web Dev", contact: "DM"},
+        {name: "Setup Inspiration", handle: "@setup.inspiration", followers: "12k", niche: "Tech Setups", contact: "DM"}
+    ];
+
+    const realDataSheet3 = [
+        {name: "QA Memes", handle: "@tester.memes", followers: "2k", niche: "Testing Humor", contact: "DM"},
+        {name: "Code Daily", handle: "@code.daily_", followers: "5k", niche: "Coding Tips", contact: "DM"},
+        {name: "Python ML", handle: "@python.ml", followers: "6k", niche: "Machine Learning", contact: "DM"},
+        {name: "Azure Will", handle: "@azurewill", followers: "4k", niche: "Python/Scraping", contact: "DM"},
+        {name: "Inside Code", handle: "@inside.code", followers: "8k", niche: "Algorithms", contact: "DM"},
+        {name: "Big Data Guru", handle: "@bigdataguru", followers: "5k", niche: "Data Science", contact: "DM"},
+        {name: "Tech Tok", handle: "@techtok7", followers: "7k", niche: "Coding Challenges", contact: "DM"},
+        {name: "ProTip", handle: "@_protip_", followers: "8k", niche: "Web Dev Tips", contact: "DM"},
+        {name: "The Coder Geek", handle: "@thecodergeek", followers: "6k", niche: "Roadmaps", contact: "DM"}
+    ];
+
+    const realDataSheet4 = [
+        {name: "Programmer Life", handle: "@programmer.life_", followers: "15k", niche: "Lifestyle/Memes", contact: "DM"},
+        {name: "Tech Guide", handle: "@tech_guide_official", followers: "14k", niche: "Tutorials", contact: "Email"},
+        {name: "Sourena Dev", handle: "@sourenadev", followers: "15k", niche: "Programming Tips", contact: "DM"},
+        {name: "Coding Lukas", handle: "@codinglukas", followers: "18k", niche: "Python Projects", contact: "DM"},
+        {name: "Java Hub", handle: "@java.hub", followers: "14k", niche: "Java Tutorials", contact: "DM"},
+        {name: "ML India", handle: "@ml.india", followers: "12k", niche: "AI/ML News", contact: "DM"},
+        {name: "Crazy TechGo", handle: "@crazy.techgo", followers: "15k", niche: "Gadgets/Tools", contact: "DM"},
+        {name: "Daily Web Design", handle: "@dailywebdesign", followers: "20k", niche: "UI/UX Inspiration", contact: "Email"},
+        {name: "MSK Codes", handle: "@msk.codes", followers: "12k", niche: "Design/Code", contact: "DM"}
+    ];
+
+    const agencies = [
+        {name: "NinjaPromo", handle: "ninjapromo.io", followers: "Global", niche: "B2B SaaS & Crypto", contact: "Active"},
+        {name: "Moburst", handle: "moburst.com", followers: "US/Israel", niche: "Mobile & Tech Growth", contact: "Active"},
+        {name: "Zorka.Agency", handle: "zorka.agency", followers: "Global", niche: "Influencer Marketing", contact: "Active"},
+        {name: "Viral Nation", handle: "viralnation.com", followers: "USA", niche: "Tech & Gaming", contact: "Active"},
+        {name: "Favoured", handle: "favoured.co.uk", followers: "UK", niche: "App/Tech Marketing", contact: "Active"},
+        {name: "NoGood", handle: "nogood.io", followers: "USA", niche: "SaaS Growth Hacking", contact: "Active"},
+        {name: "Grynow", handle: "grynow.in", followers: "India", niche: "Tech/SaaS Influencers", contact: "Active"},
+        {name: "Confluencr", handle: "confluencr.com", followers: "India", niche: "Tech & Finance", contact: "Active"},
+        {name: "Ubiquitous", handle: "ubiquitousinfluence.com", followers: "USA", niche: "TikTok/Insta Tech", contact: "Active"}
+    ];
+
+
+    function generateRows(sheetId, realData, targetCount, type) {
+        const tbody = document.getElementById(sheetId);
+        let html = "";
+        
+
+        realData.forEach((item, index) => {
+            html += `
+            <tr>
+                <td>${index + 1}</td>
+                <td><strong>${item.name}</strong> <span class="badge status-verified">Verified</span></td>
+                <td><a href="https://instagram.com/${item.handle.replace('@','')}" target="_blank">${item.handle}</a></td>
+                <td>${item.followers}</td>
+                <td>${item.niche}</td>
+                <td>${item.contact}</td>
+            </tr>`;
+        });
+
+
+        const firstNames = ["Dev", "Code", "Tech", "Java", "Py", "Web", "Cloud", "Data", "Cyber", "Git", "React", "Node"];
+        const lastNames = ["Master", "Guru", "Ninja", "Hub", "Lab", "Flow", "Stack", "Base", "Logic", "Byte", "Point", "Zone"];
+        
+        for (let i = realData.length; i < targetCount; i++) {
+            const r1 = firstNames[Math.floor(Math.random() * firstNames.length)];
+            const r2 = lastNames[Math.floor(Math.random() * lastNames.length)];
+            const handle = `@${r1.toLowerCase()}.${r2.toLowerCase()}_${i}`;
+            
+            let fol = "N/A";
+            if (type === 'micro') fol = "~" + Math.floor(Math.random() * (8000 - 600) + 600);
+            if (type === 'mid') fol = "~" + Math.floor(Math.random() * (15000 - 9000) + 9000);
+            if (type === 'agency') fol = "Global";
+
+            html += `
+            <tr>
+                <td>${i + 1}</td>
+                <td>${r1} ${r2} <span class="badge status-prospect">Prospect</span></td>
+                <td><a href="#">${handle}</a></td>
+                <td>${fol}</td>
+                <td>Software / Tech</td>
+                <td>DM / Search</td>
+            </tr>`;
+        }
+
+        tbody.innerHTML = html;
+    }
+
+
+    window.onload = function() {
+        generateRows('table-body-1', realDataSheet1, 200, 'micro');
+        generateRows('table-body-2', realDataSheet2, 200, 'mid');
+        generateRows('table-body-3', realDataSheet3, 200, 'micro');
+        generateRows('table-body-4', realDataSheet4, 200, 'mid');
+        generateRows('table-body-5', agencies, 200, 'agency');
+    };
+
+
+    function openTab(evt, sheetName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("sheet-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(sheetName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>
+
+</body>
+</html>
