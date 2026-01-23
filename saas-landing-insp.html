@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SaaS Landing Pages Inspiration Sheet (Part 2)</title>
+    <title>SaaS Landing Pages Inspiration Sheet</title>
 
     <style>
+
       :root {
         --bg: #0d1117;
         --panel: #0d1117;
@@ -99,6 +100,64 @@
         box-shadow: 0 0 0 3px rgba(63, 185, 80, 0.15);
       }
 
+      .toolbar {
+        margin: 14px 0 14px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .search {
+        flex: 1;
+        min-width: 220px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid var(--border);
+        background: #0b1320;
+        padding: 10px 12px;
+        border-radius: 10px;
+      }
+
+      .search svg {
+        flex: 0 0 auto;
+        opacity: 0.85;
+      }
+
+      .search input {
+        width: 100%;
+        border: 0;
+        outline: none;
+        background: transparent;
+        color: var(--text);
+        font-size: 14px;
+      }
+
+      .actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .btn {
+        appearance: none;
+        border: 1px solid var(--border);
+        background: var(--chip);
+        color: var(--text);
+        padding: 10px 12px;
+        border-radius: 10px;
+        font-size: 13px;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background: #2b313a;
+      }
+
       .sheet {
         border: 1px solid var(--border);
         border-radius: var(--radius);
@@ -150,6 +209,7 @@
         word-break: break-word;
       }
 
+      /* Responsive: turn into cards on small screens */
       @media (max-width: 720px) {
         thead {
           display: none;
@@ -206,20 +266,56 @@
     <div class="container">
       <div class="topbar">
         <div class="titleblock">
-          <h1>SaaS Landing Pages Inspiration Sheet (Part 2)</h1>
+          <h1>SaaS Landing Pages Inspiration Sheet</h1>
           <p>
-            Remaining entries (31 → last) — GitHub Dark themed responsive sheet.
+            A curated “sheet-style” list of SaaS websites for landing page UI/UX
           </p>
         </div>
 
         <div class="meta">
-          <span class="chip"><span class="dot"></span> GitHub Dark</span>
-          <span class="chip">Entries: 29</span>
+          <span class="chip" id="countChip">Total: 0</span>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <div class="search" role="search">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M10.5 18.5C14.9183 18.5 18.5 14.9183 18.5 10.5C18.5 6.08172 14.9183 2.5 10.5 2.5C6.08172 2.5 2.5 6.08172 2.5 10.5C2.5 14.9183 6.08172 18.5 10.5 18.5Z"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+            <path
+              d="M20.5 20.5L16.8 16.8"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Search by website name, URL, or description..."
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="actions">
+          <button class="btn" id="copyBtn" type="button">Copy as CSV</button>
+          <button class="btn" id="resetBtn" type="button">Reset</button>
         </div>
       </div>
 
       <div class="sheet">
-        <table aria-label="SaaS Inspiration Table Part 2">
+        <table id="sheetTable" aria-label="SaaS Inspiration Table">
           <thead>
             <tr>
               <th style="width: 22%">Website Name</th>
@@ -228,7 +324,389 @@
             </tr>
           </thead>
 
-          <tbody>
+          <tbody id="tbody">
+            <tr>
+              <td class="name" data-label="Website Name">Linear</td>
+              <td class="url" data-label="URL">
+                <a href="https://linear.app" target="_blank" rel="noreferrer"
+                  >https://linear.app</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Issue tracking for high-performance teams.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Resend</td>
+              <td class="url" data-label="URL">
+                <a href="https://resend.com" target="_blank" rel="noreferrer"
+                  >resend.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">Email for developers.</td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Supabase</td>
+              <td class="url" data-label="URL">
+                <a href="https://supabase.com" target="_blank" rel="noreferrer"
+                  >supabase.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Open-source Firebase alternative.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Vercel</td>
+              <td class="url" data-label="URL">
+                <a href="https://vercel.com" target="_blank" rel="noreferrer"
+                  >vercel.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Frontend cloud platform.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Railway</td>
+              <td class="url" data-label="URL">
+                <a href="https://railway.com/" target="_blank" rel="noreferrer"
+                  >https://railway.com/</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Infrastructure/Deployment platform.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Neon</td>
+              <td class="url" data-label="URL">
+                <a href="https://neon.tech" target="_blank" rel="noreferrer"
+                  >neon.tech</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Serverless Postgres database.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Clerk</td>
+              <td class="url" data-label="URL">
+                <a href="https://clerk.com" target="_blank" rel="noreferrer"
+                  >clerk.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Authentication and user management.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Inngest</td>
+              <td class="url" data-label="URL">
+                <a href="https://inngest.com" target="_blank" rel="noreferrer"
+                  >inngest.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Event-driven durable execution.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Raycast</td>
+              <td class="url" data-label="URL">
+                <a href="https://raycast.com" target="_blank" rel="noreferrer"
+                  >raycast.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Extensible desktop launcher.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">PlanetScale</td>
+              <td class="url" data-label="URL">
+                <a
+                  href="https://planetscale.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  >planetscale.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Serverless MySQL platform.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Apidog</td>
+              <td class="url" data-label="URL">
+                <a href="https://apidog.com" target="_blank" rel="noreferrer"
+                  >apidog.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                API Dev & Test platform.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Checkly</td>
+              <td class="url" data-label="URL">
+                <a href="https://checklyhq.com" target="_blank" rel="noreferrer"
+                  >checklyhq.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Monitoring and E2E testing.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Arc (Browser)</td>
+              <td class="url" data-label="URL">
+                <a href="https://arc.net" target="_blank" rel="noreferrer"
+                  >arc.net</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                The browser by The Browser Company.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Sentry</td>
+              <td class="url" data-label="URL">
+                <a href="https://sentry.io" target="_blank" rel="noreferrer"
+                  >sentry.io</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Error tracking and observability.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Postman</td>
+              <td class="url" data-label="URL">
+                <a href="https://postman.com" target="_blank" rel="noreferrer"
+                  >postman.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                API platform for developers.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Prisma</td>
+              <td class="url" data-label="URL">
+                <a href="https://prisma.io" target="_blank" rel="noreferrer"
+                  >prisma.io</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Modern ORM for Node.js.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">K6 (Grafana)</td>
+              <td class="url" data-label="URL">
+                <a href="https://k6.io" target="_blank" rel="noreferrer"
+                  >k6.io</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Performance testing tool.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Tailwind CSS</td>
+              <td class="url" data-label="URL">
+                <a
+                  href="https://tailwindcss.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  >tailwindcss.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Utility-first CSS framework.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Turborepo</td>
+              <td class="url" data-label="URL">
+                <a href="https://turbo.build" target="_blank" rel="noreferrer"
+                  >https://turbo.build</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Build system for monorepos.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Bun.sh</td>
+              <td class="url" data-label="URL">
+                <a href="https://bun.sh" target="_blank" rel="noreferrer"
+                  >bun.sh</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Fast all-in-one JS runtime.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Liveblocks</td>
+              <td class="url" data-label="URL">
+                <a
+                  href="https://liveblocks.io"
+                  target="_blank"
+                  rel="noreferrer"
+                  >liveblocks.io</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Real-time collaboration infrastructure.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Hume AI</td>
+              <td class="url" data-label="URL">
+                <a href="https://hume.ai" target="_blank" rel="noreferrer"
+                  >hume.ai</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                AI-native emotional interface.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Antimetal</td>
+              <td class="url" data-label="URL">
+                <a href="https://antimetal.com" target="_blank" rel="noreferrer"
+                  >antimetal.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Cloud cost optimization tool.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Framer</td>
+              <td class="url" data-label="URL">
+                <a href="https://framer.com" target="_blank" rel="noreferrer"
+                  >framer.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Interactive design and site builder.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Chronicle</td>
+              <td class="url" data-label="URL">
+                <a
+                  href="https://chroniclehq.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  >chroniclehq.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Presentation tool for stories.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Family</td>
+              <td class="url" data-label="URL">
+                <a href="https://family.co" target="_blank" rel="noreferrer"
+                  >family.co</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Ethereum wallet and app.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Reflect</td>
+              <td class="url" data-label="URL">
+                <a href="https://reflect.app" target="_blank" rel="noreferrer"
+                  >reflect.app</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                AI-powered notes app.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Livecycle</td>
+              <td class="url" data-label="URL">
+                <a href="https://livecycle.io" target="_blank" rel="noreferrer"
+                  >livecycle.io</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                PR collaboration for teams.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Canny</td>
+              <td class="url" data-label="URL">
+                <a href="https://canny.io" target="_blank" rel="noreferrer"
+                  >canny.io</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Feedback management tool.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Figma</td>
+              <td class="url" data-label="URL">
+                <a href="https://figma.com" target="_blank" rel="noreferrer"
+                  >figma.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Collaborative design tool.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Vercel AI SDK</td>
+              <td class="url" data-label="URL">
+                <a href="https://sdk.vercel.ai" target="_blank" rel="noreferrer"
+                  >sdk.vercel.ai</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                AI tools for frontend.
+              </td>
+            </tr>
+
             <tr>
               <td class="name" data-label="Website Name">Amplitude</td>
               <td class="url" data-label="URL">
@@ -640,10 +1118,77 @@
 
       <div class="footer">
         <div>
-          Tip: Use <span class="kbd">Ctrl</span> + <span class="kbd">F</span> to quickly find items.
+          Tip: Use <span class="kbd">Ctrl</span> + <span class="kbd">F</span> or the search box to filter fast.
         </div>
-        <div>Static GitHub-themed sheet (remaining entries).</div>
+        <div>
+        </div>
       </div>
     </div>
+
+    <script>
+      const searchInput = document.getElementById("searchInput");
+      const tbody = document.getElementById("tbody");
+      const countChip = document.getElementById("countChip");
+      const copyBtn = document.getElementById("copyBtn");
+      const resetBtn = document.getElementById("resetBtn");
+
+      const rows = Array.from(tbody.querySelectorAll("tr"));
+
+      function updateCount() {
+        const visible = rows.filter((r) => r.style.display !== "none").length;
+        countChip.textContent = `Total: ${visible}`;
+      }
+
+      function filterRows(query) {
+        const q = query.trim().toLowerCase();
+
+        rows.forEach((row) => {
+          const text = row.innerText.toLowerCase();
+          row.style.display = text.includes(q) ? "" : "none";
+        });
+
+        updateCount();
+      }
+
+      searchInput.addEventListener("input", (e) => {
+        filterRows(e.target.value);
+      });
+
+      resetBtn.addEventListener("click", () => {
+        searchInput.value = "";
+        filterRows("");
+        searchInput.focus();
+      });
+
+      copyBtn.addEventListener("click", async () => {
+        const header = ["Website Name", "URL", "Description"];
+        const visibleRows = rows.filter((r) => r.style.display !== "none");
+
+        const csvLines = [header.join(",")];
+
+        visibleRows.forEach((row) => {
+          const cols = row.querySelectorAll("td");
+          const name = cols[0].innerText.trim();
+          const url = cols[1].innerText.trim();
+          const desc = cols[2].innerText.trim();
+
+          const safe = (v) => `"${v.replaceAll('"', '""')}"`;
+          csvLines.push([safe(name), safe(url), safe(desc)].join(","));
+        });
+
+        const csv = csvLines.join("\n");
+
+        try {
+          await navigator.clipboard.writeText(csv);
+          copyBtn.textContent = "Copied!";
+          setTimeout(() => (copyBtn.textContent = "Copy as CSV"), 900);
+        } catch (err) {
+          alert("Copy failed. Your browser may block clipboard access.");
+        }
+      });
+
+      // init
+      updateCount();
+    </script>
   </body>
 </html>
