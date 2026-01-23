@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SaaS Landing Pages Inspiration Sheet</title>
+
+    <style>
+      :root {
+        --bg: #0d1117;
+        --panel: #0d1117;
+        --text: #c9d1d9;
+        --muted: #8b949e;
+        --border: #30363d;
+        --rowHover: #161b22;
+        --header: #161b22;
+        --link: #58a6ff;
+        --green: #3fb950;
+        --chip: #21262d;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        --radius: 12px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        line-height: 1.45;
+      }
+
+      a {
+        color: var(--link);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 28px 16px 40px;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+
+      .titleblock h1 {
+        margin: 0 0 6px 0;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+      }
+
+      .titleblock p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .meta {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border: 1px solid var(--border);
+        background: var(--chip);
+        border-radius: 999px;
+        color: var(--muted);
+        font-size: 12px;
+        white-space: nowrap;
+      }
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: var(--green);
+        box-shadow: 0 0 0 3px rgba(63, 185, 80, 0.15);
+      }
+
+      .sheet {
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: var(--panel);
+        box-shadow: var(--shadow);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      thead th {
+        text-align: left;
+        font-size: 12px;
+        color: var(--muted);
+        font-weight: 600;
+        background: var(--header);
+        border-bottom: 1px solid var(--border);
+        padding: 12px 14px;
+        position: sticky;
+        top: 0;
+        z-index: 2;
+      }
+
+      tbody td {
+        padding: 12px 14px;
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+        font-size: 14px;
+      }
+
+      tbody tr:hover td {
+        background: var(--rowHover);
+      }
+
+      .name {
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .desc {
+        color: var(--text);
+        opacity: 0.92;
+      }
+
+      .url a {
+        word-break: break-word;
+      }
+
+      @media (max-width: 720px) {
+        thead {
+          display: none;
+        }
+        table,
+        tbody,
+        tr,
+        td {
+          display: block;
+          width: 100%;
+        }
+        tbody tr {
+          border-bottom: 1px solid var(--border);
+        }
+        tbody td {
+          border-bottom: none;
+          padding: 10px 14px;
+        }
+
+        tbody td::before {
+          content: attr(data-label);
+          display: block;
+          font-size: 12px;
+          color: var(--muted);
+          margin-bottom: 6px;
+          font-weight: 600;
+        }
+      }
+
+      .footer {
+        margin-top: 16px;
+        color: var(--muted);
+        font-size: 12px;
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .kbd {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace;
+        font-size: 12px;
+        border: 1px solid var(--border);
+        background: #0b1320;
+        padding: 2px 6px;
+        border-radius: 6px;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="topbar">
+        <div class="titleblock">
+          <h1>SaaS Landing Pages Inspiration Sheet</h1>
+          <p>
+            A curated “sheet-style” list of SaaS websites for landing page UI/UX
+            inspiration — GitHub Dark theme.
+          </p>
+        </div>
+
+        <div class="meta">
+          <span class="chip"><span class="dot"></span> GitHub Dark</span>
+          <span class="chip">Entries: 30</span>
+        </div>
+      </div>
+
+      <div class="sheet">
+        <table aria-label="SaaS Inspiration Table">
+          <thead>
+            <tr>
+              <th style="width: 22%">Website Name</th>
+              <th style="width: 28%">URL</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td class="name" data-label="Website Name">Linear</td>
+              <td class="url" data-label="URL">
+                <a href="https://linear.app" target="_blank" rel="noreferrer"
+                  >https://linear.app</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Issue tracking for high-performance teams.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Resend</td>
+              <td class="url" data-label="URL">
+                <a href="https://resend.com" target="_blank" rel="noreferrer"
+                  >resend.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">Email for developers.</td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Supabase</td>
+              <td class="url" data-label="URL">
+                <a href="https://supabase.com" target="_blank" rel="noreferrer"
+                  >supabase.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Open-source Firebase alternative.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Vercel</td>
+              <td class="url" data-label="URL">
+                <a href="https://vercel.com" target="_blank" rel="noreferrer"
+                  >vercel.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Frontend cloud platform.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Railway</td>
+              <td class="url" data-label="URL">
+                <a href="https://railway.com/" target="_blank" rel="noreferrer"
+                  >https://railway.com/</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Infrastructure/Deployment platform.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Neon</td>
+              <td class="url" data-label="URL">
+                <a href="https://neon.tech" target="_blank" rel="noreferrer"
+                  >neon.tech</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Serverless Postgres database.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Clerk</td>
+              <td class="url" data-label="URL">
+                <a href="https://clerk.com" target="_blank" rel="noreferrer"
+                  >clerk.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Authentication and user management.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Inngest</td>
+              <td class="url" data-label="URL">
+                <a href="https://inngest.com" target="_blank" rel="noreferrer"
+                  >inngest.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Event-driven durable execution.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Raycast</td>
+              <td class="url" data-label="URL">
+                <a href="https://raycast.com" target="_blank" rel="noreferrer"
+                  >raycast.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Extensible desktop launcher.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">PlanetScale</td>
+              <td class="url" data-label="URL">
+                <a
+                  href="https://planetscale.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  >planetscale.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Serverless MySQL platform.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Apidog</td>
+              <td class="url" data-label="URL">
+                <a href="https://apidog.com" target="_blank" rel="noreferrer"
+                  >apidog.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                API Dev & Test platform.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Checkly</td>
+              <td class="url" data-label="URL">
+                <a href="https://checklyhq.com" target="_blank" rel="noreferrer"
+                  >checklyhq.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Monitoring and E2E testing.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Arc (Browser)</td>
+              <td class="url" data-label="URL">
+                <a href="https://arc.net" target="_blank" rel="noreferrer"
+                  >arc.net</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                The browser by The Browser Company.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Sentry</td>
+              <td class="url" data-label="URL">
+                <a href="https://sentry.io" target="_blank" rel="noreferrer"
+                  >sentry.io</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Error tracking and observability.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Postman</td>
+              <td class="url" data-label="URL">
+                <a href="https://postman.com" target="_blank" rel="noreferrer"
+                  >postman.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                API platform for developers.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Prisma</td>
+              <td class="url" data-label="URL">
+                <a href="https://prisma.io" target="_blank" rel="noreferrer"
+                  >prisma.io</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Modern ORM for Node.js.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">K6 (Grafana)</td>
+              <td class="url" data-label="URL">
+                <a href="https://k6.io" target="_blank" rel="noreferrer"
+                  >k6.io</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Performance testing tool.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Tailwind CSS</td>
+              <td class="url" data-label="URL">
+                <a
+                  href="https://tailwindcss.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  >tailwindcss.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Utility-first CSS framework.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Turborepo</td>
+              <td class="url" data-label="URL">
+                <a href="https://turbo.build" target="_blank" rel="noreferrer"
+                  >https://turbo.build</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Build system for monorepos.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Bun.sh</td>
+              <td class="url" data-label="URL">
+                <a href="https://bun.sh" target="_blank" rel="noreferrer"
+                  >bun.sh</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Fast all-in-one JS runtime.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Liveblocks</td>
+              <td class="url" data-label="URL">
+                <a
+                  href="https://liveblocks.io"
+                  target="_blank"
+                  rel="noreferrer"
+                  >liveblocks.io</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Real-time collaboration infrastructure.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Hume AI</td>
+              <td class="url" data-label="URL">
+                <a href="https://hume.ai" target="_blank" rel="noreferrer"
+                  >hume.ai</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                AI-native emotional interface.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Antimetal</td>
+              <td class="url" data-label="URL">
+                <a href="https://antimetal.com" target="_blank" rel="noreferrer"
+                  >antimetal.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Cloud cost optimization tool.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Framer</td>
+              <td class="url" data-label="URL">
+                <a href="https://framer.com" target="_blank" rel="noreferrer"
+                  >framer.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Interactive design and site builder.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Chronicle</td>
+              <td class="url" data-label="URL">
+                <a
+                  href="https://chroniclehq.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  >chroniclehq.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Presentation tool for stories.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Family</td>
+              <td class="url" data-label="URL">
+                <a href="https://family.co" target="_blank" rel="noreferrer"
+                  >family.co</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Ethereum wallet and app.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Reflect</td>
+              <td class="url" data-label="URL">
+                <a href="https://reflect.app" target="_blank" rel="noreferrer"
+                  >reflect.app</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                AI-powered notes app.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Livecycle</td>
+              <td class="url" data-label="URL">
+                <a href="https://livecycle.io" target="_blank" rel="noreferrer"
+                  >livecycle.io</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                PR collaboration for teams.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Canny</td>
+              <td class="url" data-label="URL">
+                <a href="https://canny.io" target="_blank" rel="noreferrer"
+                  >canny.io</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Feedback management tool.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Figma</td>
+              <td class="url" data-label="URL">
+                <a href="https://figma.com" target="_blank" rel="noreferrer"
+                  >figma.com</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                Collaborative design tool.
+              </td>
+            </tr>
+
+            <tr>
+              <td class="name" data-label="Website Name">Vercel AI SDK</td>
+              <td class="url" data-label="URL">
+                <a href="https://sdk.vercel.ai" target="_blank" rel="noreferrer"
+                  >sdk.vercel.ai</a
+                >
+              </td>
+              <td class="desc" data-label="Description">
+                AI tools for frontend.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="footer">
+        <div>
+          Tip: Use <span class="kbd">Ctrl</span> + <span class="kbd">F</span> to quickly find items.
+        </div>
+        <div>Static GitHub-themed sheet (first 30 entries).</div>
+      </div>
+    </div>
+  </body>
+</html>
